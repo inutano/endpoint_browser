@@ -34,18 +34,18 @@
   if(parseInt(bnode) == 0){
     code = "  VALUES ?s { " + entry + " }\n";
     if(inv != 1) code += "  ?s ?p ?o .";
-    else code += "  ?o ?p ?s ." // inverse 
+    else code += "  ?o ?p ?s ." // inverse
   }else{
     let links = JSON.parse(b_p);
     code = "  {\n    SELECT ?s\n    WHERE {\n";
     let predicates = "<" + links.join(">/<") + ">";
     if(inv == 1) predicates = "<" + links.reverse().join(">/<") + ">";  // inverse
-    predicates = predicates.replace(/\<inv-http/g, "^<http"); 
+    predicates = predicates.replace(/\<inv-http/g, "^<http");
     code += "      " + entry + " " + predicates + " ?s .\n";
     if(b_t) code += "      ?s a <" + b_t + "> .\n";
     code += "    } LIMIT 1\n  }\n";
     if(inv != 1) code += "  ?s ?p ?o .";
-    else code += "  ?o ?p ?s ." // inverse 
+    else code += "  ?o ?p ?s ." // inverse
   }
   let limit_code = "LIMIT " + limit;
   if(limit == 0) limit_code  = "";
@@ -88,7 +88,7 @@ ORDER BY ?p
   let list = links.results.bindings;
   let code = "";
   for(let i in list){
-    if(list[i].o_sample.value.match(/^https*:\/\//)) code += "<" + list[i].o_sample.value + "> ";
+    if(list[i].o_sample.value.match(/^https*:\/\//)) code += "<" + list[i].o_sample.value.replace(/\\\#/g,'#').replace(/\\\+/g,'+') + "> ";
   }
   return code;
 };
@@ -133,7 +133,7 @@ LIMIT {{limit}}
   for(let i in list){
     if(list[i].label) object2label[list[i].o.value] = list[i].label;
   }
-  
+
   let res = [];
   let type_p = {type: "uri", value: "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"};
   let type_o_count = {type: "typed-literal", datatype: "http://www.w3.org/2001/XMLSchema#integer", value: "1"};
@@ -150,7 +150,7 @@ LIMIT {{limit}}
     json.push(type_uniq[key]);
   }
   ////////
-  
+
   for(elm of json){
     let obj = {s: elm.s, p: type_p, o_sample: elm.o, c: elm.o, o_count: type_o_count};
     if(elm.o_label) obj['c_label'] = elm.o_label;
