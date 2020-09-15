@@ -147,12 +147,16 @@ var epBrowser = epBrowser || {
 
 	epBrowser.endpoint = stanza_params["endpoint"];
 <<<<<<< HEAD
+<<<<<<< HEAD
 	epBrowser.graph = false;
 	if(stanza_params["graphs"]) epBrowser.graph = stanza_params["graphs"];
 
 =======
 
 >>>>>>> a6e4246... change sparqlist api root
+=======
+
+>>>>>>> a6e4246634b0800044ab8bd5db054ed2a6412a92
 	// make DOM
 	//// SVG DOM
 	let renderDiv = d3.select(renderDivId).style("position", "relative");
@@ -453,9 +457,12 @@ var epBrowser = epBrowser || {
 	edges_layer.selectAll(".edge").remove();
 	edges_label_layer.selectAll(".edge_label").remove();
 <<<<<<< HEAD
+<<<<<<< HEAD
 	edges_label_layer.selectAll(".edge_label_bg").remove();
 =======
 >>>>>>> a6e4246... change sparqlist api root
+=======
+>>>>>>> a6e4246634b0800044ab8bd5db054ed2a6412a92
 	nodes_layer.selectAll(".node_mouse_eve_g").remove();
 	nodes_layer.selectAll(".sparql_node").remove();
 
@@ -660,7 +667,10 @@ var epBrowser = epBrowser || {
 		return dtype;
 	    });
 
+<<<<<<< HEAD
 >>>>>>> a6e4246... change sparqlist api root
+=======
+>>>>>>> a6e4246634b0800044ab8bd5db054ed2a6412a92
 	// node mouse event
 	let endpoint = epBrowser.endpoint;
 	if(epBrowser.outerEpFlag && epBrowser.outerEp && epBrowser.outerEp.match(/^https*:\/\//)) endpoint = epBrowser.outerEp;
@@ -782,6 +792,7 @@ var epBrowser = epBrowser || {
 	    node_g.selectAll(".select_outer_endpoint").remove();
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// right click
 	svg.selectAll(".node_mouse_eve_g")
 	    .on("contextmenu", function(d){
@@ -875,6 +886,9 @@ var epBrowser = epBrowser || {
 =======
 
 >>>>>>> a6e4246... change sparqlist api root
+=======
+
+>>>>>>> a6e4246634b0800044ab8bd5db054ed2a6412a92
 	svg.selectAll("text").style("user-select", "none");
 
 	// rdf config (set new suggest var name)
@@ -887,7 +901,10 @@ var epBrowser = epBrowser || {
 =======
 	epBrowser.startSimulation(edge, edge_label, node_g);
 
+<<<<<<< HEAD
 >>>>>>> a6e4246... change sparqlist api root
+=======
+>>>>>>> a6e4246634b0800044ab8bd5db054ed2a6412a92
 	// node drag
 	function dragstarted(d) {
 	    if(!d3.event.active) simulation.alphaTarget(0.3).restart();
@@ -1332,9 +1349,12 @@ var epBrowser = epBrowser || {
 	    .style("left", (element.getBoundingClientRect().left + pageXOffset - renderDiv.node().offsetLeft + x) + "px");
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     startSimulation: function(edge, edge_label, edge_label_bg, node_g){
 =======
+=======
+>>>>>>> a6e4246634b0800044ab8bd5db054ed2a6412a92
 
     startSimulation: function(edge, edge_label, node_g){
 >>>>>>> a6e4246... change sparqlist api root
@@ -2195,6 +2215,7 @@ var epBrowser = epBrowser || {
     },
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     showSameTypeNodes: function(api_json, renderDiv, param){
 	epBrowser.clickableFlag = true;
 	let popup = renderDiv.select("#var_name_form").html("").style("display", "block");
@@ -2224,6 +2245,8 @@ var epBrowser = epBrowser || {
 
 =======
 >>>>>>> a6e4246... change sparqlist api root
+=======
+>>>>>>> a6e4246634b0800044ab8bd5db054ed2a6412a92
     hidePopupInputDiv: function(renderDiv){
 	let div = renderDiv.select("#var_name_form").style("display", "none");
 	div.select("#var_name").remove();
